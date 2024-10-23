@@ -12,6 +12,10 @@ def check_grammar(text):
     response = requests.post(url, data=params)
     return response.json().get('matches', [])
 
+def process_input(user_input):
+    matches = check_grammar(user_input)
+    return matches
+
 # Streamlit title
 st.title("IELTS Grammar Checker")
 
@@ -21,14 +25,13 @@ audio_input = st.file_uploader("Upload an audio file", type=["wav"])
 if audio_input:
     # Read the audio file
     audio_data, sample_rate = sf.read(audio_input)
-    # Here you would typically convert audio to text using a speech recognition library
-    # For demonstration, we are using a placeholder for the text
+    # Placeholder for transcribed text
     user_input = "This is a placeholder for the transcribed text."  # Replace with actual transcription code
 else:
     user_input = st.text_area("Type your sentence here:")
 
 if st.button("Check Grammar"):
-    matches = check_grammar(user_input)
+    matches = process_input(user_input)
     
     if not matches:
         st.success("Great job! Your sentence is perfect!")
