@@ -2,3 +2,4 @@ streamlit
 language-tool-python
 soundfile
 numpy
+setuptools
