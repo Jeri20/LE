@@ -6,7 +6,3 @@ setuptools
 requests
 textblob
 streamlit
-torch==2.4.0
-torchvision==0.15.0
-torchaudio==2.4.0
-git+https://github.com/PrithivirajDamodaran/Gramformer.git
